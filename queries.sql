@@ -8,7 +8,7 @@ join UMD_events.Organization using(organization_id) where UMD_events.Events.Dres
 
 create or replace view find_all_professionals_and_if_they_have_food as
 
-select UMD_events.Organization.organization_name,UMD_events.Organization.Organization_description, UMD_events.Events.Food
+select UMD_events.Organization.organization_name,UMD_events.Organization.Organization_description, UMD_events.Events.Food, COUNT(UMD_events.Organization.organization_name)
 from  UMD_events.Events join  Org_Events using(Event_id) join UMD_events.Organization  using(Organization_id)join UMD_events.Organization Type using(OrganizationType_id)
 where OrganizationType_id = 3 and Food=True group by UMD_events.Organization.organization_name;
 
