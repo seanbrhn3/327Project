@@ -25,3 +25,9 @@ select temp.event_name as Events, dresscode.Type_of_dress_code as "Dress Code", 
 from (select event_name, Dresscode_Dress_code_id from events where Dresscode_Dress_code_id > 2) temp
 left join dresscode on temp.Dresscode_Dress_code_id = dresscode.Dress_code_id
 order by dresscode.Dress_code_description;
+
+create view events_per_day as
+select event_date as Date, count(event_id) as "# of Events" 
+from events 
+group by event_date 
+order by event_date;
