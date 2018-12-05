@@ -119,6 +119,19 @@ INSERT INTO `Events_Location` VALUES (1,1,2212),(2,2,2203),(3,3,1107),(4,4,2113)
 UNLOCK TABLES;
 
 --
+-- Temporary view structure for view `events_per_day`
+--
+
+DROP TABLE IF EXISTS `events_per_day`;
+/*!50001 DROP VIEW IF EXISTS `events_per_day`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8mb4;
+/*!50001 CREATE VIEW `events_per_day` AS SELECT 
+ 1 AS `Date`,
+ 1 AS `# of Events`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `EventType`
 --
 
@@ -399,6 +412,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `events_per_day`
+--
+
+/*!50001 DROP VIEW IF EXISTS `events_per_day`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `events_per_day` AS select `events`.`Event_date` AS `Date`,count(`events`.`Event_id`) AS `# of Events` from `events` group by `events`.`Event_date` order by `events`.`Event_date` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `find_all_professionals_and_if_they_have_food`
 --
 
@@ -479,4 +510,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-05 13:42:10
+-- Dump completed on 2018-12-05 13:47:04
