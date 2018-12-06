@@ -442,7 +442,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `find_all_professionals_and_if_they_have_food` AS select `organization`.`organization_name` AS `organization_name`,`organization`.`Organization_description` AS `Organization_description`,`events`.`Food` AS `Food`,count(`organization`.`organization_name`) AS `COUNT(UMD_events.Organization.organization_name)` from (((`events` join `org_events` on((`events`.`Event_id` = `org_events`.`Event_id`))) join `organization` on((`org_events`.`Organization_id` = `organization`.`organization_id`))) join `organization` `Type` on((`organization`.`OrganizationType_id` = `Type`.`OrganizationType_id`))) where ((`organization`.`OrganizationType_id` = 3) and (`events`.`Food` = TRUE)) group by `organization`.`organization_name` */;
+/*!50001 VIEW `find_all_professionals_and_if_they_have_food` AS select `organization`.`organization_name` AS `organization_name`,`organization`.`Organization_description` AS `Organization_description`,`events`.`Food` AS `Food`,count(`organization`.`organization_name`) AS `COUNT(UMD_events.Organization.organization_name)` from (((`events` join `org_events` on((`events`.`Event_id` = `org_events`.`Event_id`))) join `organization` on((`org_events`.`Organization_id` = `organization`.`organization_id`))) join `organization` `Type` on((`organization`.`OrganizationType_id` = `Type`.`OrganizationType_id`))) where ((`organization`.`OrganizationType_id` = 3) and (`events`.`Food` = TRUE)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -510,4 +510,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-05 13:47:04
+-- Dump completed on 2018-12-05 21:00:00
